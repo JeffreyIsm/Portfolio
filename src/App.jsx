@@ -1,9 +1,14 @@
+import Intro from "./Intro"
+import Exp from "./Experience"
+import Nav from "./Nav"
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <Nav></Nav>
+      <Intro></Intro>
+      <Exp></Exp>
     </>
   )
 }

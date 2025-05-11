@@ -3,3 +3,6 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
+.hover-red{
+  @apply transition-colors duration-300 hover:text-red-500
+}
