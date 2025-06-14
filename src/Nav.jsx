@@ -1,6 +1,6 @@
 function Nav(){
     return(
-        <div className="text-white bg-black flex flex-row pt-7 p-10  ">
+        <div className="font-michroma-regular text-white bg-black flex flex-row pt-7 p-10  ">
             <div className="hover-red cursor-pointer">
                 <p>Home</p>
             </div>

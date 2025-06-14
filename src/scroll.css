@@ -1,0 +1,33 @@
+.scroll-section {
+  display: flex;
+  position: relative;
+  height: 300vh; /* enough scroll height */
+}
+
+.scroll-text {
+  flex: 1;
+  padding: 5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: black;
+  color: white;
+}
+
+.scroll-images-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-images {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.scroll-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
