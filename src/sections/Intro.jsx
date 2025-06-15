@@ -76,9 +76,11 @@ function Intro() {
                 >
                     NYU Shanghai
                 </motion.h2>
-                <div className="flex flex-row justify-start gap-4 mt-4">
+                <div className="flex flex-row justify-center md:justify-start gap-4 mt-4">
                     <motion.a 
-                        href="mailto:jri6773@nyu.edu" 
+                        href="mailto:jri6773@nyu.edu?subject=Hello Jeffrey"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="hover:opacity-80 transition-opacity"
                         initial={{ opacity: 0, scale: 0.5, x: -20 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
