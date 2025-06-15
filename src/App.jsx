@@ -11,10 +11,18 @@ function App() {
     <>
       <Nav></Nav>
       <Intro></Intro>
-      <Exp></Exp>
-      <Proj></Proj>
-      <Cert></Cert>
-      <Skills></Skills>
+      <div id="experience">
+        <Exp></Exp>
+      </div>
+      <div id="projects">
+        <Proj></Proj>
+      </div>
+      <div id="certifications">
+        <Cert></Cert>
+      </div>
+      <div id="skills">
+        <Skills></Skills>
+      </div>
     </>
   )
 }
