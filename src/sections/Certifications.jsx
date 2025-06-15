@@ -4,7 +4,7 @@ import * as motion from "motion/react-client"
 
 export default function Cert() {
   return (
-    <div className="bg-black w-full py-12 md:py-15 px-4 md:px-6">
+    <div className="bg-black w-full py-12 md:py-15 px-4 md:px-6 md:pb-50">
       <div className="max-w-7xl mx-auto">
         {/* Container for title and content */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">

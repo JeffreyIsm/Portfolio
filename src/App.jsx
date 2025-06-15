@@ -2,7 +2,8 @@ import Intro from "./sections/Intro"
 import Exp from "./sections/Experience"
 import Nav from "./Nav"
 import Cert from "./sections/Certifications"
-import Arrow from "./sections/Arrow"
+import Proj from "./sections/Projects"
+import Skills from "./sections/Skills"
 
 function App() {
 
@@ -11,8 +12,9 @@ function App() {
       <Nav></Nav>
       <Intro></Intro>
       <Exp></Exp>
-      <Arrow></Arrow>
+      <Proj></Proj>
       <Cert></Cert>
+      <Skills></Skills>
     </>
   )
 }
