@@ -9,15 +9,25 @@ export default function Proj() {
       id: 1,
       title: "Townhouse Management System",
       text: `Features: Admin login page, email reminder for payment due, dynamic coloring
-      Can't share more images due to confidentiality`,
+      Can't share more images due to confidentiality
+      Basic HTML/CSS/JS - Django - PostgreSQL`,
       image: "./images/townhouse.PNG",
     },
     {
       id: 2,
       title: "Frontend Website Developer",
       text: `Hemisphere: Link yet to be published (ongoing project)
-      Other websites developed: asia-advisory.com`,
+      Other websites developed: asia-advisory.com
+      React`,
       image: "./images/hemishphere.png",
+    },
+    {
+      id: 3,
+      title: "Full-stack Developer",
+      text: `Coming Soon...
+      Currently working on 2 different projects
+      React - Django - PostgreSQL`,
+      image: "./images/football.png",
     },
   ]
   const [selected, setSelected] = useState(0)
