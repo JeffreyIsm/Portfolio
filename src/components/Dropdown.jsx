@@ -1,11 +1,35 @@
 {/* Component from: https://uiverse.io/ilkhoeri/curvy-newt-49 Creator: @ilkhoeri */}
 import '../components/Dropdown.css';
+import { useEffect,useRef } from 'react';
 
 export default function Dropdown({ title = "Dropdown", items = [] }) {
+  const ref = useRef();
+  const checkboxRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && checkboxRef.current) {
+          checkboxRef.current.checked = true;
+        }
+      },
+      {
+        threshold: 0.9,
+      }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
   return (
-    <div className="bg-black">
+    <div ref={ref} className="bg-black">
       <div className="dropdown">
         <input
+          ref = {checkboxRef}
           hidden=""
           className="sr-only"
           name={`state-${title}`}
