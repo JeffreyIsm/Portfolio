@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 
 export function AnimatedLogo({ href, imgSrc, alt, delay }) {
+    const isMailto = href.startsWith("mailto:");
   return (
     <motion.a
       href={href}
