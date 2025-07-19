@@ -22,8 +22,8 @@ function Nav(){
                 <div className="hidden md:flex flex-row space-x-6">
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('experience')}>experiences</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('projects')}>projects</p>
-                    <p className="hover-red cursor-pointer" onClick={() => scrollToSection('certifications')}>certificates</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('skills')}>skills</p>
+                    <p className="hover-red cursor-pointer" onClick={() => scrollToSection('certifications')}>certificates</p>
                 </div>
 
                 {/* Mobile Menu Button */}

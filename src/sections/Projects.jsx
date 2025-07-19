@@ -8,26 +8,38 @@ export default function Proj() {
     {
       id: 1,
       title: "Townhouse Management System",
-      text: `Features: Admin login page, email reminder for payment due, dynamic coloring
-      Can't share more images due to confidentiality
-      Basic HTML/CSS/JS - Django - PostgreSQL`,
+      text: `Replaced a client’s manual Excel-based process of tracking tenants, payments, and due dates, by building a full-stack hotel management system`,
       image: "./images/townhouse.PNG",
+      link: null,
+      linkReason: "Can't share more images due to confidentiality",
+      techStack: "Basic HTML/CSS/JS - Django - PostgreSQL",
     },
     {
       id: 2,
-      title: "Frontend Website Developer",
-      text: `Hemisphere: Link yet to be published (ongoing project)
-      Other websites developed: asia-advisory.com
-      React`,
-      image: "./images/hemishphere.png",
+      title: "ML Audio Denoise",
+      text: `My brother was struggling to record videos with noisy background, so I ATTEMPTED to fix it...`,
+      image: "./images/AIModel.png",
+      link: "https://audio-denoise.vercel.app/",
+      linkReason: null,
+      techStack: "Tensorflow, Linux, FastAPI, React",
     },
     {
       id: 3,
       title: "Full-stack Developer",
-      text: `Coming Soon...
-      Currently working on 2 different projects
-      React - Django - PostgreSQL`,
+      text: `Coming Soon... Currently working on 2 different projects`,
       image: "./images/football.png",
+      link: null,
+      linkReason: "No public link yet.",
+      techStack: "React - Django - PostgreSQL",
+    },
+    {
+      id: 4,
+      title: "Frontend Website Developer",
+      text: `Hemisphere`,
+      image: "./images/hemishphere.png",
+      link: null,
+      linkReason: "Link yet to be published (ongoing project)",
+      techStack: "React",
     },
   ]
   const [selected, setSelected] = useState(0)
@@ -84,6 +96,17 @@ export default function Proj() {
             >
               {items[selected].text}
             </motion.p>
+            <div className="mt-2 text-sm md:text-base text-white">
+              <span className="font-bold">Link: </span>
+              {items[selected].link ? (
+                <a href={items[selected].link} target="_blank" rel="noopener noreferrer" className="underline text-blue-400">{items[selected].link}</a>
+              ) : (
+                <span>{items[selected].linkReason}</span>
+              )}
+            </div>
+            <div className="mt-1 text-sm md:text-base text-white">
+              <span className="font-bold">Tech stacks: </span>{items[selected].techStack}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

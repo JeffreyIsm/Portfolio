@@ -5,7 +5,6 @@ import { Typewriter } from "../components/TypeWriter";
 import { AnimatedLogo } from "../components/AnimatedLogo";
 
 function Intro() {
-
     return (
         <div className="font-michroma-regular flex flex-col md:flex-row justify-center items-center bg-black py-8 md:py-0 px-4 md:px-6 md:pb-10">
             <motion.img 
@@ -91,7 +90,21 @@ function Intro() {
                         alt="LinkedIn"
                         delay={3.2}
                     />
+                    <AnimatedLogo
+                        href="https://github.com/JeffreyIsm"
+                        imgSrc="./images/github.png"
+                        alt="GitHub"
+                        delay={3.4}
+                    />
                 </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 7.2 }}
+                    className="text-white text-xs mt-3 text-center md:text-left"
+                >
+                    jri6773@nyu.edu
+                </motion.div>
             </div>
         </div>
     );
