@@ -17,11 +17,11 @@ function App() {
       <div id="projects">
         <Proj></Proj>
       </div>
-      <div id="certifications">
-        <Cert></Cert>
-      </div>
       <div id="skills">
         <Skills></Skills>
+      </div>
+      <div id="certifications">
+        <Cert></Cert>
       </div>
     </>
   )

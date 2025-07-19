@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react"
 import { Typewriter } from "../components/TypeWriter";
+import { AnimatedLogo } from "../components/AnimatedLogo";
 
 function Intro() {
 
@@ -76,37 +77,20 @@ function Intro() {
                 >
                     NYU Shanghai
                 </motion.h2>
+
                 <div className="flex flex-row justify-center md:justify-start gap-4 mt-4">
-                    <motion.a 
+                    <AnimatedLogo
                         href="mailto:jri6773@nyu.edu?subject=Hello Jeffrey"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:opacity-80 transition-opacity"
-                        initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 3,
-                            ease: [0, 0.71, 0.2, 1.01],
-                        }}
-                    >
-                        <img src="./images/gmail.png" alt="Gmail" className="h-8 w-8" />
-                    </motion.a>
-                    <motion.a 
-                        href="https://www.linkedin.com/in/jeffrey-ritchie-i-jri6773" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="hover:opacity-80 transition-opacity"
-                        initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 3.2,
-                            ease: [0, 0.71, 0.2, 1.01],
-                        }}
-                    >
-                        <img src="./images/linkedin.png" alt="LinkedIn" className="h-8 w-8" />
-                    </motion.a>
+                        imgSrc="./images/gmail.png"
+                        alt="Gmail"
+                        delay={3}
+                    />
+                    <AnimatedLogo
+                        href="https://www.linkedin.com/in/jeffrey-ritchie-i-jri6773"
+                        imgSrc="./images/linkedin.png"
+                        alt="LinkedIn"
+                        delay={3.2}
+                    />
                 </div>
             </div>
         </div>

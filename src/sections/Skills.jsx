@@ -20,11 +20,13 @@ export default function Skills() {
     const Backend = [
         "Django",
         "PostgreSQL",
+        "FastAPI",
     ];
 
     const ToolsPlatforms = [
         "GitHub",
         "Vercel",
+        "Railway",
     ];
 
   return (
@@ -33,11 +35,11 @@ export default function Skills() {
             Tech Skills
         </h1>
         <div className='flex flex-wrap justify-center gap-4 md:gap-10 px-4 md:px-0'>
-            <Dropdown title="Machine Learning" items={MachineLearning} />
             <Dropdown title="Programming Languages" items={ProgrammingLanguages} />
             <Dropdown title="Frontend" items={Frontend} />
             <Dropdown title="Backend" items={Backend} />
             <Dropdown title="Tools / Platforms" items={ToolsPlatforms} />
+            <Dropdown title="Machine Learning" items={MachineLearning} />
         </div>
     </div>
   );
