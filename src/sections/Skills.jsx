@@ -8,6 +8,7 @@ export default function Skills() {
 
     const ProgrammingLanguages = [
         "Python",
+        "JavaScript",
         "C",
         "HTML/CSS",
     ];
@@ -19,12 +20,17 @@ export default function Skills() {
 
     const Backend = [
         "Django",
-        "PostgreSQL",
         "FastAPI",
+    ];
+
+    const Databases = [
+        "PostgreSQL",
+        "MySQL",
     ];
 
     const ToolsPlatforms = [
         "GitHub",
+        "Supabase",
         "Vercel",
         "Railway",
     ];
@@ -38,6 +44,7 @@ export default function Skills() {
             <Dropdown title="Programming Languages" items={ProgrammingLanguages} />
             <Dropdown title="Frontend" items={Frontend} />
             <Dropdown title="Backend" items={Backend} />
+            <Dropdown title="Databases" items={Databases} />
             <Dropdown title="Tools / Platforms" items={ToolsPlatforms} />
             <Dropdown title="Machine Learning" items={MachineLearning} />
         </div>

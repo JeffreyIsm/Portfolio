@@ -28,8 +28,8 @@ export default function Proj() {
       title: "Application Platform",
       text: `Full-stack platform enabling multi-role submissions (e.g., scholarship applicants and donors) with an admin dashboard for search, filtering, and data management.`,
       image: "./images/indohelp.png",
-      link: null,
-      linkReason: "No public link yet.",
+      link: "https://www.indohelp.org/",
+      linkReason: null,
       techStack: "React - Django - PostgreSQL",
     },
     {

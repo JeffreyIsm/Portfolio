@@ -5,21 +5,6 @@ import { AnimatePresence, motion } from "motion/react";
 
 const experiences = [
   {
-    id: "robotics",
-    logo: "./images/robotics.jpeg",
-    image: "./images/robots_team.jpg",
-    title: "Board Member",
-    org: "Robotics Club at NYU Shanghai",
-    date: "Sep 2024 - Present",
-    location: "Shanghai, China (On-site)",
-    description: [
-      "Together with the core team: Developed the NYU Shanghai Robotics website.",
-      "Designed, built, and competed in the Asia Open VEX-U Robotics Competition.",
-      "Learned how to integrate code with robotic hardware."
-    ],
-    logoRounded: true,
-  },
-  {
     id: "xsigma",
     logo: "./images/xsigma_logo.jpg",
     image: "./images/xsigma_team.jpeg",
@@ -50,6 +35,21 @@ const experiences = [
     ],
     logoRounded: false,
   },
+  {
+    id: "robotics",
+    logo: "./images/robotics.jpeg",
+    image: "./images/robots_team.jpg",
+    title: "Board Member",
+    org: "Robotics Club at NYU Shanghai",
+    date: "Sep 2024 - Present",
+    location: "Shanghai, China (On-site)",
+    description: [
+      "Together with the core team: Developed the NYU Shanghai Robotics website.",
+      "Designed, built, and competed in the Asia Open VEX-U Robotics Competition.",
+      "Learned how to integrate code with robotic hardware."
+    ],
+    logoRounded: true,
+  },
 ];
 
 function Exp() {
@@ -57,6 +57,12 @@ function Exp() {
   const refs = useRef({});
 
   useEffect(() => {
+    // Preload all experience detail images
+    experiences.forEach((exp) => {
+      const img = new Image();
+      img.src = exp.image;
+    });
+
     const handleClickOutside = (event) => {
       // If clicking outside the active card container, close it
       if (visible && refs.current[visible] && !refs.current[visible].contains(event.target)) {
