@@ -78,12 +78,7 @@ function Intro() {
                 </motion.h2>
 
                 <div className="flex flex-row justify-center md:justify-start gap-4 mt-4">
-                    <AnimatedLogo
-                        href="mailto:jri6773@nyu.edu?subject=Hello Jeffrey"
-                        imgSrc="./images/gmail.png"
-                        alt="Gmail"
-                        delay={3}
-                    />
+
                     <AnimatedLogo
                         href="https://www.linkedin.com/in/jeffrey-ritchie-i-jri6773"
                         imgSrc="./images/linkedin.png"
@@ -97,14 +92,7 @@ function Intro() {
                         delay={3.4}
                     />
                 </div>
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 7.2 }}
-                    className="text-white text-xs mt-3 text-center md:text-left"
-                >
-                    jri6773@nyu.edu
-                </motion.div>
+
             </div>
         </div>
     );

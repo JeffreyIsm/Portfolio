@@ -5,6 +5,18 @@ import { AnimatePresence, motion } from "motion/react";
 
 const experiences = [
   {
+    id: "xsigma",
+    logo: "./images/xsigma_logo.jpg",
+    image: "./images/xsigma_team.jpeg",
+    title: "Software Developer Intern",
+    org: "X-Sigma Partners (Shanghai)",
+    date: "Nov 2025 - Apr 2026",
+    location: "Shanghai, China (On-site)",
+    description:
+      "Replaced manual Excel workflows by designing and implementing a full-stack ERP system for production and inventory management, integrating automated calculations to improve efficiency and data accuracy. Worked directly with company leadership to align system design with business operations and strategic decisions. Integrated API-level caching and pagination, and implemented JWT role-based authentication (RBAC), ensuring scalable, cost-efficient, and secure performance. Containerized the system using Docker and deployed it on Aliyun with RDS for production use. Automated repetitive tasks using Python and Playwright to improve workflow efficiency.",
+    logoRounded: false,
+  },
+  {
     id: "robotics",
     logo: "./images/robotics.jpeg",
     image: "./images/robots_team.jpg",

@@ -25,9 +25,9 @@ export default function Proj() {
     },
     {
       id: 3,
-      title: "Full-stack Developer",
-      text: `Coming Soon... Currently working on 2 different projects`,
-      image: "./images/football.png",
+      title: "Application Platform",
+      text: `Full-stack platform enabling multi-role submissions (e.g., scholarship applicants and donors) with an admin dashboard for search, filtering, and data management.`,
+      image: "./images/indohelp.png",
       link: null,
       linkReason: "No public link yet.",
       techStack: "React - Django - PostgreSQL",
