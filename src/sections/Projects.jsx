@@ -6,6 +6,15 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Proj() {
   const items = [
     {
+      id: 5,
+      title: "Campus Marketplace Platform",
+      text: `April 2026 – Present • Full-stack peer-to-peer marketplace for NYU Shanghai to promote item reuse. Features @nyu.edu authentication, real-time messaging, and AI-assisted prototyping.`,
+      image: "./images/studentrades.png",
+      link: "https://studentrades.xyz/",
+      linkReason: null,
+      techStack: "React - Node.js - MongoDB - AI Assisted",
+    },
+    {
       id: 1,
       title: "Townhouse Management System",
       text: `Replaced a client’s manual Excel-based process of tracking tenants, payments, and due dates, by building a full-stack hotel management system`,
