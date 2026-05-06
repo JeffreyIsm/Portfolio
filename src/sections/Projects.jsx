@@ -12,7 +12,7 @@ export default function Proj() {
       image: "./images/studentrades.png",
       link: "https://studentrades.xyz/",
       linkReason: null,
-      techStack: "React - Node.js - MongoDB - AI Assisted",
+      techStack: "React - FastAPI - Supabase",
     },
     {
       id: 1,
