@@ -1,73 +1,77 @@
 "use client"
 
-import * as motion from "motion/react-client"
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import Folder from "../components/Folder";
+
+// Paths are relative to the page ("./"), not the bundle ("../") -- that's what
+// keeps them resolving under the /portfolio/ base on GitHub Pages.
+const certificates = [
+  { src: "./images/mlcert.jpg", label: "Machine Learning" },
+  { src: "./images/pythoncert.jpg", label: "Python" },
+];
 
 export default function Cert() {
-  return (
-    <div className="bg-black w-full py-12 md:py-15 px-4 md:px-6 md:pb-50">
-      <div className="max-w-7xl mx-auto">
-        {/* Container for title and content */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Left Title */}
-          <div className="md:w-1/3">
-            <div className="md:sticky md:top-32 text-center md:text-left md:ml-15">
-              <h2 className="font-michroma-regular text-2xl md:text-3xl font-bold text-white leading-12">
-                Certificates / Courses
-              </h2>
-            </div>
-          </div>
+  const [zoomed, setZoomed] = useState(null);
 
-          {/* Right Scroll Section */}
-          <div className="md:w-2/3 md:ml-5">
-            <div className="space-y-16 md:space-y-32">
-              {certificates.map(([certs], i) => (
-                <Card i={i} certs={certs} key={certs} />
-              ))}
-            </div>
-          </div>
+  const papers = certificates.map((cert) => (
+    <img
+      key={cert.src}
+      src={cert.src}
+      alt={cert.label}
+      title={cert.label}
+      onClick={(e) => {
+        // The whole folder is a click-to-toggle button, so without this the
+        // folder would snap shut the moment you reach for a certificate.
+        e.stopPropagation();
+        setZoomed(cert);
+      }}
+      className="w-full h-full object-cover rounded-[10px] cursor-zoom-in"
+    />
+  ));
+
+  return (
+    <div className="w-full p-4 md:p-10 md:pb-30">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        {/* Left: heading + subtext */}
+        <div className="md:w-1/2 text-center md:text-left pl-10">
+          <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-4 pt-4 md:pt-0">
+            Certificates / Courses
+          </h1>
+          <p className="text-white/50 max-w-md mx-auto md:mx-0">
+            Click the folder to open it, then click a certificate to enlarge.
+          </p>
+        </div>
+
+        {/* Right: folder. `size` scales via transform, which leaves the layout
+            box at its unscaled 100x80 -- so the wrapper reserves the height. */}
+        <div className="md:w-1/2 flex items-center justify-center h-[260px] md:h-[320px] pt-10">
+          <Folder color="#ef4444" size={2.2} items={papers} />
         </div>
       </div>
+
+      <AnimatePresence>
+        {zoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setZoomed(null)}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-black/85 backdrop-blur-sm p-4 cursor-zoom-out"
+          >
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              src={zoomed.src}
+              alt={zoomed.label}
+              className="max-h-[80vh] max-w-full object-contain rounded-xl"
+            />
+            <p className="text-white/70 text-sm">{zoomed.label} — click anywhere to close</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
-
-/* a new component for EACH INDIVIDUAL image card */
-function Card({ certs, i }) {
-  return (
-    <motion.div
-      className="flex justify-center items-center relative"
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ amount: 0.9 }}
-    >
-      <motion.div 
-        variants={cardVariants}
-        className="w-full"
-      >
-        <img 
-          src={certs} 
-          alt="certificate" 
-          className="w-full max-w-[600px] mx-auto object-contain"
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
-
-const cardVariants ={
-  offscreen: {
-    y: 0,
-  },
-  onscreen: {
-    y: 0,
-    transition: {
-      type:"linear",
-      duration:0.8,
-    },
-  },
-};
-
-const certificates = [
-  ["../images/mlcert.jpg"],
-  ["../images/pythoncert.jpg"],
-]

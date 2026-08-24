@@ -12,7 +12,8 @@ function Nav(){
     };
 
     return(
-        <div className="font-michroma-regular text-white bg-black pt-7 p-10">
+        <div className="font-michroma-regular text-white pt-7 pb-10 px-4 sticky top-0 z-50">
+            <nav className="w-[90vw] md:w-[70vw] mx-auto rounded-lg px-6 py-3 border border-white/20 hover:border-white/40 transition-all bg-black/40 backdrop-blur-md">
             <div className="flex flex-row justify-between items-center">
                 <div className="hover-red cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <p>JR</p>
@@ -24,6 +25,7 @@ function Nav(){
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('projects')}>projects</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('skills')}>skills</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('certifications')}>certificates</p>
+                    {/* <p className="hover-red cursor-pointer" onClick={() => scrollToSection('contact')}>contact</p> */}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -65,8 +67,10 @@ function Nav(){
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('projects')}>projects</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('certifications')}>certifications</p>
                     <p className="hover-red cursor-pointer" onClick={() => scrollToSection('skills')}>skills</p>
+                    {/* <p className="hover-red cursor-pointer" onClick={() => scrollToSection('contact')}>contact</p> */}
                 </div>
             )}
+            </nav>
         </div>
     );
 }

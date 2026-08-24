@@ -26,7 +26,7 @@ export default function Dropdown({ title = "Dropdown", items = [] }) {
   }, []);
 
   return (
-    <div ref={ref} className="bg-black">
+    <div ref={ref}>
       <div className="dropdown">
         <input
           ref = {checkboxRef}
@@ -45,11 +45,24 @@ export default function Dropdown({ title = "Dropdown", items = [] }) {
         </label>
 
         <ul className="list webkit-scrollbar" role="list" dir="auto">
-          {items.map((text, index) => (
-            <li className="listitem" role="listitem" key={index}>
-              <article className="article">{text}</article>
-            </li>
-          ))}
+          {items.map((item, index) => {
+            // Accepts a plain string or { label, Icon }. Entries without an icon
+            // render a blank slot the same size, so labels stay aligned.
+            const label = typeof item === "string" ? item : item.label;
+            const Icon = typeof item === "string" ? null : item.Icon;
+            return (
+              <li className="listitem" role="listitem" key={index}>
+                <article className="article flex items-center gap-3">
+                  {Icon ? (
+                    <Icon className="h-5 w-5 shrink-0" />
+                  ) : (
+                    <span className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  )}
+                  <span>{label}</span>
+                </article>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
