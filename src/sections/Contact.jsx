@@ -92,7 +92,7 @@ function Contact() {
 
         {status === "sent" && (
           <p className="text-center text-sm text-green-400">
-            Thanks — I'll get back to you soon.
+            Email sent (I hope it sent).
           </p>
         )}
         {status === "error" && (
