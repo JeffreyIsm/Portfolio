@@ -4,7 +4,7 @@ import Nav from "./Nav"
 import Cert from "./sections/Certifications"
 import Proj from "./sections/Projects"
 import Skills from "./sections/Skills"
-// import Contact from "./sections/Contact"  // hidden until the Railway API is up
+import Contact from "./sections/Contact"
 import BeamsBackground from "@/components/kokonutui/beams-background"
 import { motion } from "motion/react"
 
@@ -29,25 +29,24 @@ function App() {
 
       <div className="relative z-10">
         <Nav></Nav>
-        <Intro></Intro>
-        <div id="experience">
+        <div className="snap-section">
+          <Intro></Intro>
+        </div>
+        <div id="experience" className="snap-section">
           <Exp></Exp>
         </div>
-        <div id="projects">
+        <div id="projects" className="snap-section">
           <Proj></Proj>
         </div>
-        <div id="skills">
+        <div id="skills" className="snap-section">
           <Skills></Skills>
         </div>
-        <div id="certifications">
+        <div id="certifications" className="snap-section">
           <Cert></Cert>
         </div>
-        {/* Hidden for this deploy -- uncomment this and the import above,
-            plus the two nav links in Nav.jsx, to bring it back.
-        <div id="contact">
+        <div id="contact" className="snap-section">
           <Contact></Contact>
         </div>
-        */}
       </div>
     </>
   )

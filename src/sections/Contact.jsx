@@ -3,23 +3,16 @@ import { motion } from "motion/react";
 
 const EMAIL = "jri6773@nyu.edu";
 
-// Set VITE_CONTACT_API to the Railway endpoint once it's up, e.g.
-//   VITE_CONTACT_API=https://your-service.up.railway.app/api/contact
-// Until then the form falls back to the visitor's own mail client, so a live
-// site still works. Delete `mailtoFallback` once the API is wired.
-const API = import.meta.env.VITE_CONTACT_API;
+// Defaults to a same-origin Vercel serverless function at /api/contact -- no
+// CORS, no second service, no env var needed. Override with VITE_CONTACT_API
+// only if the API ever lives on a different host.
+// Until /api/contact exists the POST fails and the error message shows the
+// address, so the form degrades rather than silently swallowing a message.
+const API = import.meta.env.VITE_CONTACT_API || "/api/contact";
 
 const FIELD =
   "w-full rounded-lg bg-white/5 border border-white/20 px-4 py-3 text-white " +
   "placeholder-white/40 transition-all focus:border-white/40 focus:outline-none";
-
-function mailtoFallback({ name, email, message }) {
-  const body = `${message}\n\n--\n${name} (${email})`;
-  window.location.href =
-    `mailto:${EMAIL}` +
-    `?subject=${encodeURIComponent(`Portfolio message from ${name}`)}` +
-    `&body=${encodeURIComponent(body)}`;
-}
 
 function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
@@ -33,11 +26,6 @@ function Contact() {
     if (website) {
       setStatus("sent");
       e.target.reset();
-      return;
-    }
-
-    if (!API) {
-      mailtoFallback(data);
       return;
     }
 

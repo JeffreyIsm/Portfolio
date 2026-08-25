@@ -25,6 +25,31 @@
    back face). Tracks the site's border-white/20 -> /40 hover idiom.
    Both the standard properties and the -webkit- pseudo-elements are declared:
    Firefox and Chrome 121+ read the standard ones, older WebKit the pseudos. */
+/* Full-section scroll snapping.
+   Desktop only, and only for real pointers: on touch every section stacks and
+   runs far taller than the screen, where mandatory snapping makes the middle of
+   a section an invalid resting position and hides content.
+   scroll-snap-stop: always stops one section per gesture instead of letting a
+   fast flick skip past several.
+   scroll-margin-top clears the sticky nav, which would otherwise cover the top
+   of whatever section just snapped into place. */
+@media (min-width: 1024px) and (hover: hover) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-snap-type: none;
+  }
+}
+
 .thin-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
