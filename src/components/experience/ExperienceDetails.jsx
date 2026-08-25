@@ -23,7 +23,7 @@ export default function ExperienceDetails({ experiences, index }) {
           aria-hidden: CardFlip's own aria-label already says how to activate it. */}
       <p
         aria-hidden="true"
-        className="font-michroma-regular text-[10px] md:text-xs text-white/40 text-right pr-1 pb-2"
+        className="font-michroma-regular text-[10px] md:text-xs text-white/40 text-left pr-1 pb-2"
       >
         ({hasHover ? "hover" : "tap"} me)
       </p>
