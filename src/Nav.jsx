@@ -27,7 +27,7 @@ function Nav(){
                 delay: reduceMotion ? 0 : INTRO_SETTLES + 0.1,
                 ease: "easeOut",
             }}
-            className="font-michroma-regular text-white pt-7 pb-10 px-4 sticky top-0 z-50"
+            className="font-michroma-regular text-white pt-7 pb-4 px-4 sticky top-0 z-50"
         >
             <nav className="w-[90vw] md:w-[70vw] mx-auto rounded-lg px-6 py-3 border border-white/20 hover:border-white/40 transition-all bg-black/40 backdrop-blur-md">
             <div className="flex flex-row justify-between items-center">

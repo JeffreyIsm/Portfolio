@@ -29,22 +29,22 @@ function App() {
 
       <div className="relative z-10">
         <Nav></Nav>
-        <div className="snap-section">
+        <div className="section-anchor">
           <Intro></Intro>
         </div>
-        <div id="experience" className="snap-section">
+        <div id="experience" className="section-anchor">
           <Exp></Exp>
         </div>
-        <div id="projects" className="snap-section">
+        <div id="projects" className="section-anchor">
           <Proj></Proj>
         </div>
-        <div id="skills" className="snap-section">
+        <div id="skills" className="section-anchor">
           <Skills></Skills>
         </div>
-        <div id="certifications" className="snap-section">
+        <div id="certifications" className="section-anchor">
           <Cert></Cert>
         </div>
-        <div id="contact" className="snap-section">
+        <div id="contact" className="section-anchor">
           <Contact></Contact>
         </div>
       </div>

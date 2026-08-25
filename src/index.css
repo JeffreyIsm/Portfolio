@@ -21,35 +21,22 @@
   @apply text-white flex justify-center text-4xl text-center;
 }
 
+/* One vertical rhythm for every section. Tune here, not per section. */
+.section-pad {
+  @apply py-20 md:py-28 px-4 md:px-6;
+}
+
+/* Scroll offset for the sticky navbar. scrollIntoView from the nav aligns a
+   section to the very top of the viewport, which the navbar would otherwise
+   cover -- this pushes the landing point down past it. */
+.section-anchor {
+  scroll-margin-top: 7rem;
+}
+
 /* Thin, theme-matched scrollbar for scrollable panels (the Experience card's
    back face). Tracks the site's border-white/20 -> /40 hover idiom.
    Both the standard properties and the -webkit- pseudo-elements are declared:
    Firefox and Chrome 121+ read the standard ones, older WebKit the pseudos. */
-/* Full-section scroll snapping.
-   Desktop only, and only for real pointers: on touch every section stacks and
-   runs far taller than the screen, where mandatory snapping makes the middle of
-   a section an invalid resting position and hides content.
-   scroll-snap-stop: always stops one section per gesture instead of letting a
-   fast flick skip past several.
-   scroll-margin-top clears the sticky nav, which would otherwise cover the top
-   of whatever section just snapped into place. */
-@media (min-width: 1024px) and (hover: hover) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
-  .snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    scroll-margin-top: 7rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-snap-type: none;
-  }
-}
-
 .thin-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) transparent;

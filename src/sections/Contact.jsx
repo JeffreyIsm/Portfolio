@@ -45,11 +45,11 @@ function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 md:p-10 md:pb-30">
-      <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-4 pt-4 md:pt-0 text-center">
+    <div className="section-pad flex flex-col items-center">
+      <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-2 md:pb-3 text-center">
         Contact Me
       </h1>
-      <p className="text-white/50 text-center pb-8 md:pb-12 max-w-md">
+      <p className="text-white/50 text-center pb-8 md:pb-10 max-w-md">
         Got a role, a project, or just want to say hi? Drop a message below.
       </p>
 

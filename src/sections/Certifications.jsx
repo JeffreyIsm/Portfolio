@@ -31,11 +31,11 @@ export default function Cert() {
   ));
 
   return (
-    <div className="w-full p-4 md:p-10 md:pb-30">
+    <div className="section-pad w-full">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Left: heading + subtext */}
         <div className="md:w-1/2 text-center md:text-left pl-10">
-          <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-4 pt-4 md:pt-0">
+          <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-2 md:pb-3">
             Certificates / Courses
           </h1>
           <p className="text-white/50 max-w-md mx-auto md:mx-0">

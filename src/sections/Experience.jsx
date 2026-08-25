@@ -12,7 +12,7 @@ function Exp() {
     <section
       aria-roledescription="carousel"
       aria-label="My work experiences"
-      className="text-white py-10 md:py-20 px-4 md:px-6"
+      className="section-pad text-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">

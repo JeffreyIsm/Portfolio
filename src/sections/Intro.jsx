@@ -65,13 +65,13 @@ function Intro() {
     };
 
     return (
-        <div className="font-michroma-regular flex flex-col md:flex-row justify-center items-center py-8 md:py-0 px-4 md:px-6 md:pb-10">
+        <div className="py-10 md:py-20 px-4 md:px-6 font-michroma-regular flex flex-col md:flex-row justify-center items-center">
             <motion.img 
                 src="./images/jeff2.jpg" 
                 width={1027}
                 height={1316}
                 fetchPriority="high"
-                className="rounded-full w-48 md:w-75 h-auto mx-auto md:m-20 md:mt-10"
+                className="rounded-full w-48 md:w-75 h-auto mx-auto md:mx-20"
                 alt="profpic"
                 initial={{ opacity:0, scale:0.5 }}
                 animate={{ opacity:1, scale: 1}}

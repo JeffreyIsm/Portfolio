@@ -58,11 +58,11 @@ const GROUPS = [
 
 export default function Skills() {
   return (
-    <div className='min-h-screen w-full pb-5'>
-        <h1 className='font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-8 md:pb-15 pt-4 md:pt-0 text-center'>
+    <div className='section-pad w-full min-h-screen'>
+        <h1 className='font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-2 md:pb-3 text-center'>
             Tech Skills
         </h1>
-        <p className='text-center text-white/50 pb-8 md:pb-12'>(Hover or tap a category)</p>
+        <p className='text-center text-white/50 pb-8 md:pb-10'>(Hover or tap a category)</p>
 
         {/* FlowingMenu lays its rows out with flex-1, so the height has to come
             from here -- with no height the rows collapse to nothing. */}

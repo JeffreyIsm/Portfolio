@@ -88,11 +88,11 @@ export default function Proj() {
     "px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
 
   return (
-    <div className="flex flex-col items-center p-4 md:p-10 min-h-screen md:pb-30 md:pt-5">
+    <div className="section-pad flex flex-col items-center min-h-screen">
       <div className="w-[90vw] md:w-[80vw] max-w-6xl flex flex-col md:flex-row gap-6 md:gap-10">
         {/* Left: the projects in this category */}
         <div className="md:w-1/3">
-        <h1 className='font-michroma-regular text-white text-3xl md:text-4xl font-bold pb-6 pt-4 md:pt-0'>
+        <h1 className='font-michroma-regular text-white text-3xl md:text-4xl font-bold pb-6 md:pb-8'>
           Projects
         </h1>
 
