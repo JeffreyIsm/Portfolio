@@ -57,6 +57,18 @@ export default function Proj() {
       linkReason: null,
       techStack: "React - Django - PostgreSQL",
     },
+    {
+      id: 4,
+      title: "Asia Advisory",
+      text: `Built a clear online presence for Asia Advisory, a firm connecting established, restructuring, and growth-stage companies with equity investors and bank or non-bank financing. The site presents its advisory capabilities, previous deals across industries, leadership team, and contact details.`,
+      image: "./images/asiaadvisory.webp",
+      imgW: 1879,
+      imgH: 862,
+      builtFor: "Client",
+      link: "https://asia-advisory.com/",
+      linkReason: null,
+      techStack: "React",
+    },
   ]
   // Category order follows first appearance in `items`, so adding a project
   // with a new builtFor value adds a step to the switcher automatically.
