@@ -13,7 +13,9 @@ export default function Proj() {
       id: 5,
       title: "Campus Marketplace Platform",
       text: `On dorm move-out day I saw how many usable items were being thrown out, so I built a peer-to-peer marketplace for the NYU Shanghai community. @nyu.edu sign-in keeps it to students, with real-time messaging between buyers and sellers.`,
-      image: "./images/studentrades.png",
+      image: "./images/studentrades_web.webp",
+      imgW: 1400,
+      imgH: 745,
       builtFor: "University",
       link: "https://studentrades.xyz/",
       linkReason: null,
@@ -23,7 +25,9 @@ export default function Proj() {
       id: 1,
       title: "Townhouse Management System",
       text: `Replaced a client’s manual Excel-based process of tracking tenants, payments, and due dates, by building a full-stack hotel management system`,
-      image: "./images/townhouse.PNG",
+      image: "./images/townhouse_web.webp",
+      imgW: 1292,
+      imgH: 627,
       builtFor: "Client",
       link: null,
       linkReason: "Can't share more images due to confidentiality",
@@ -33,7 +37,9 @@ export default function Proj() {
       id: 2,
       title: "ML Audio Denoise",
       text: `My brother was struggling to record videos with noisy background, so I ATTEMPTED to fix it...`,
-      image: "./images/AIModel.png",
+      image: "./images/aimodel_web.webp",
+      imgW: 1019,
+      imgH: 794,
       builtFor: "Personal",
       link: "https://audio-denoise.vercel.app/",
       linkReason: null,
@@ -43,7 +49,9 @@ export default function Proj() {
       id: 3,
       title: "Scholarship Platform",
       text: `Built for Indohelp, connecting students seeking scholarships with the donors who fund them. Applicants and donors each register through their own flow, and an admin dashboard handles search, filtering, and record management across every submission.`,
-      image: "./images/indohelp.png",
+      image: "./images/indohelp_web.webp",
+      imgW: 1400,
+      imgH: 641,
       builtFor: "Client",
       link: "https://www.indohelp.org/",
       linkReason: null,
@@ -193,6 +201,9 @@ export default function Proj() {
                 <motion.img
                   src={selected.image}
                   alt={selected.title}
+                  width={selected.imgW}
+                  height={selected.imgH}
+                  decoding="async"
                   initial={{ scale: reduceMotion ? 1 : 1.04 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
