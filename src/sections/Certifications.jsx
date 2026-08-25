@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Folder from "../components/Folder";
 
@@ -11,8 +11,26 @@ const certificates = [
   { src: "./images/pythoncert.jpg", label: "Python" },
 ];
 
+/**
+ * Folder scales itself with a CSS transform driven by its `size` prop -- a bare
+ * number, so unlike every other element on the page it can't be sized in CSS.
+ * Measure the viewport instead. Floored at the old 2.2 so nothing shrinks at the
+ * widths that already looked right; capped so it stays a folder, not a wall.
+ */
+function useFolderSize() {
+  const [size, setSize] = useState(2.2);
+  useEffect(() => {
+    const calc = () => setSize(Math.min(3.6, Math.max(2.2, window.innerWidth / 580)));
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, []);
+  return size;
+}
+
 export default function Cert() {
   const [zoomed, setZoomed] = useState(null);
+  const folderSize = useFolderSize();
 
   const papers = certificates.map((cert) => (
     <img
@@ -32,21 +50,21 @@ export default function Cert() {
 
   return (
     <div className="section-pad w-full">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="shell flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Left: heading + subtext */}
         <div className="md:w-1/2 text-center md:text-left pl-10">
-          <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-2 md:pb-3">
+          <h1 className="font-michroma-regular text-white h-section font-bold pb-2 md:pb-3">
             Certificates / Courses
           </h1>
-          <p className="text-white/50 max-w-md mx-auto md:mx-0">
+          <p className="text-white/50 text-fluid max-w-[38ch] mx-auto md:mx-0">
             Click the folder to open it, then click a certificate to enlarge.
           </p>
         </div>
 
         {/* Right: folder. `size` scales via transform, which leaves the layout
             box at its unscaled 100x80 -- so the wrapper reserves the height. */}
-        <div className="md:w-1/2 flex items-center justify-center h-[260px] md:h-[320px] pt-10">
-          <Folder color="#ef4444" size={2.2} items={papers} />
+        <div className="md:w-1/2 flex items-center justify-center h-[clamp(16rem,26vw,34rem)] pt-10">
+          <Folder color="#ef4444" size={folderSize} items={papers} />
         </div>
       </div>
 

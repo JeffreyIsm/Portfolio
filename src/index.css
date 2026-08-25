@@ -26,6 +26,35 @@
   @apply py-20 md:py-28 px-4 md:px-6;
 }
 
+/* One container for every section.
+   The old per-section caps (max-w-7xl / max-w-6xl = 1280px / 1152px) stopped
+   growing at laptop width, so on a very wide monitor the page sat as a small
+   island while the vw-sized Skills panel kept filling the screen.
+   min(100%, max(70vw, 80rem)) reads as: never wider than the parent's content
+   box (so section-pad's own padding is the gutter on phones, with no risk of a
+   vw value overflowing it), never narrower than 80rem (= the old 1280px cap, so
+   nothing shrinks on sizes that already fit), and past ~1830px the 70vw term
+   takes over and the page tracks the viewport the way the navbar already does. */
+.shell {
+  width: min(100%, max(70vw, 80rem));
+  margin-inline: auto;
+}
+
+/* Fluid type. Growing the container without growing the text just makes long,
+   hard-to-track lines, so headings scale on the same axis. The vw term does the
+   scaling; the rem term keeps it from collapsing on narrow phones. */
+.h-section {
+  font-size: clamp(1.75rem, 1.1rem + 2.2vw, 3.5rem);
+  line-height: 1.15;
+}
+.h-hero {
+  font-size: clamp(1.875rem, 1rem + 2.9vw, 4.5rem);
+  line-height: 1.1;
+}
+.text-fluid {
+  font-size: clamp(0.9rem, 0.82rem + 0.25vw, 1.15rem);
+}
+
 /* Scroll offset for the sticky navbar. scrollIntoView from the nav aligns a
    section to the very top of the viewport, which the navbar would otherwise
    cover -- this pushes the landing point down past it. */

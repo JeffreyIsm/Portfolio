@@ -109,10 +109,10 @@ export default function Proj() {
 
   return (
     <div className="section-pad flex flex-col items-center min-h-screen">
-      <div className="w-[90vw] md:w-[80vw] max-w-6xl flex flex-col md:flex-row gap-6 md:gap-10">
+      <div className="shell flex flex-col md:flex-row gap-6 md:gap-10">
         {/* Left: the projects in this category */}
         <div className="md:w-1/3">
-        <h1 className='font-michroma-regular text-white text-3xl md:text-4xl font-bold pb-6 md:pb-8'>
+        <h1 className='font-michroma-regular text-white h-section font-bold pb-6 md:pb-8'>
           Projects
         </h1>
 
@@ -219,7 +219,7 @@ export default function Proj() {
                   initial={{ scale: reduceMotion ? 1 : 1.04 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
-                  className="w-full h-auto max-h-[280px] md:max-h-[360px] object-contain rounded-xl mb-4 md:mb-6"
+                  className="w-full h-auto max-h-[clamp(17rem,26vw,34rem)] object-contain rounded-xl mb-4 md:mb-6"
                 />
                 <p className='m-0 whitespace-pre-line text-sm md:text-base text-gray-200'>
                   {selected.text}

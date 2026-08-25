@@ -14,10 +14,10 @@ function Exp() {
       aria-label="My work experiences"
       className="section-pad text-white"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="shell">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
           <div className="w-full lg:w-[45%] flex flex-col items-center gap-8">
-            <h1 className="font-michroma-regular font-bold text-[clamp(1.5rem,2.6vw,2.25rem)] text-center">
+            <h1 className="font-michroma-regular font-bold h-section text-center">
               My Experiences
             </h1>
 

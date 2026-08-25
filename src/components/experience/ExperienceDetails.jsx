@@ -28,7 +28,7 @@ export default function ExperienceDetails({ experiences, index }) {
         ({hasHover ? "hover" : "tap"} me)
       </p>
 
-      <div className="relative w-full h-[clamp(22rem,34vw,25rem)]">
+      <div className="relative w-full h-[clamp(22rem,34vw,34rem)]">
         {experiences.map((exp, i) => {
           const active = i === index;
           return (

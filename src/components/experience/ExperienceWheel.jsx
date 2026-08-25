@@ -187,7 +187,7 @@ export default function ExperienceWheel({ experiences, index, onIndexChange }) {
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className="relative aspect-square w-full mx-auto touch-none select-none cursor-grab active:cursor-grabbing max-w-[min(85vw,25rem)] lg:max-w-[clamp(15rem,26vw,25rem)]"
+      className="relative aspect-square w-full mx-auto touch-none select-none cursor-grab active:cursor-grabbing max-w-[min(85vw,25rem)] lg:max-w-[clamp(15rem,26vw,34rem)]"
     >
       {/* Rings, in the site's existing hairline-white idiom */}
       <div className="absolute inset-0 rounded-full border border-white/10" />

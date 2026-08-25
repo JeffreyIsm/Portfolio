@@ -46,10 +46,10 @@ function Contact() {
 
   return (
     <div className="section-pad flex flex-col items-center">
-      <h1 className="font-michroma-regular text-white text-3xl md:text-5xl font-bold pb-2 md:pb-3 text-center">
+      <h1 className="font-michroma-regular text-white h-section font-bold pb-2 md:pb-3 text-center">
         Contact Me
       </h1>
-      <p className="text-white/50 text-center pb-8 md:pb-10 max-w-md">
+      <p className="text-white/50 text-fluid text-center pb-8 md:pb-10 max-w-[42ch]">
         Got a role, a project, or just want to say hi? Drop a message below.
       </p>
 
@@ -59,7 +59,7 @@ function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="w-[90vw] md:w-[70vw] max-w-2xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm"
+        className="w-[min(100%,42rem)] flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm"
       >
         <div className="flex flex-col md:flex-row gap-4">
           <input name="name" type="text" required placeholder="Your name" className={FIELD} />

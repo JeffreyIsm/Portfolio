@@ -65,13 +65,14 @@ function Intro() {
     };
 
     return (
-        <div className="py-10 md:py-20 px-4 md:px-6 font-michroma-regular flex flex-col md:flex-row justify-center items-center">
+        <div className="py-10 md:py-20 px-4 md:px-6 font-michroma-regular">
+            <div className="shell flex flex-col md:flex-row justify-center items-center gap-[clamp(1.5rem,4vw,5rem)]">
             <motion.img 
                 src="./images/jeff2.jpg" 
                 width={1027}
                 height={1316}
                 fetchPriority="high"
-                className="rounded-full w-48 md:w-75 h-auto mx-auto md:mx-20"
+                className="rounded-full w-[clamp(12rem,17vw,22rem)] h-auto mx-auto md:mx-0"
                 alt="profpic"
                 initial={{ opacity:0, scale:0.5 }}
                 animate={{ opacity:1, scale: 1}}
@@ -82,9 +83,9 @@ function Intro() {
                 }}
             />
 
-            <div className="flex flex-col text-white place-content-center text-center md:text-left mt-8 md:mt-0 md:mr-10">
+            <div className="flex flex-col text-white place-content-center text-center md:text-left mt-8 md:mt-0">
                 <motion.h1
-                    className="text-3xl font-bold md:text-5xl pb-4 md:pb-7"
+                    className="h-hero font-bold pb-4 md:pb-7"
                     animate={{ color: ["#ffffff", "#ff0000", "#ffffff"] }}
                     transition={{
                         duration: 4,
@@ -96,7 +97,7 @@ function Intro() {
                 </motion.h1>
 
                 <motion.h2
-                    className="text-lg md:text-xl"
+                    className="text-[clamp(1.05rem,0.9rem+0.55vw,1.75rem)]"
                     initial={{opacity:0, y:10}}
                     animate={{ 
                         opacity:1,
@@ -148,6 +149,7 @@ function Intro() {
                     </AnimatePresence>
                 </div>
 
+            </div>
             </div>
         </div>
     );
