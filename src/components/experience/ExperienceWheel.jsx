@@ -26,6 +26,10 @@ export default function ExperienceWheel({ experiences, index, onIndexChange }) {
 
   // Animate to the rotation that parks `i` at 0deg, via the nearest equivalent
   // angle to where we are now.
+  // False while a snap is in flight. The wheel handler refuses to queue a step
+  // until the motion has actually finished, so scrolls can't stack up.
+  const settled = useRef(true);
+
   const snapTo = useCallback(
     (i) => {
       const raw = -i * spacing;
@@ -33,9 +37,17 @@ export default function ExperienceWheel({ experiences, index, onIndexChange }) {
       const target = raw + turns * 360;
       if (reduceMotion) {
         rotation.set(target);
+        settled.current = true;
         return;
       }
-      animate(rotation, target, { type: "spring", stiffness: 110, damping: 18, mass: 0.9 });
+      settled.current = false;
+      const controls = animate(rotation, target, {
+        type: "spring",
+        stiffness: 110,
+        damping: 18,
+        mass: 0.9,
+      });
+      controls.then(() => (settled.current = true));
     },
     [rotation, spacing, reduceMotion]
   );
@@ -63,24 +75,59 @@ export default function ExperienceWheel({ experiences, index, onIndexChange }) {
   // Native listener with { passive: false }: React's onWheel is passive and so
   // cannot preventDefault. Scoped to this element, so the rest of the page
   // scrolls normally -- only a cursor over the wheel rotates it.
+  //
+  // One step per gesture. A gesture is a burst of wheel events; it ends after
+  // GESTURE_END ms of silence, which also swallows trackpad/smooth-scroll
+  // momentum. Once a gesture has produced a step -- or been rejected because a
+  // snap was still running -- it is spent, so spamming does nothing. The next
+  // step needs both a settled wheel and a fresh gesture.
   useEffect(() => {
     const el = wrapRef.current;
-    if (!el) return;
+    // With a single item a step is a no-op, so `index` never changes, the snap
+    // effect never re-runs, and the gate would never reopen. Don't listen.
+    if (!el || count < 2) return;
+
+    const GESTURE_END = 140;
+    const THRESHOLD = 40;
+
     let acc = 0;
-    let locked = false;
+    let active = false; // a gesture is in progress
+    let spent = false; // this gesture has already been judged
+    let idle;
+
     const onWheel = (e) => {
       e.preventDefault();
-      if (locked) return;
+
+      if (!active) {
+        active = true;
+        spent = false;
+        acc = 0;
+      }
+      clearTimeout(idle);
+      idle = setTimeout(() => (active = false), GESTURE_END);
+
+      if (spent) return;
+
+      // A scroll that arrives mid-snap burns the gesture rather than queueing.
+      if (!settled.current) {
+        spent = true;
+        return;
+      }
+
       acc += e.deltaY;
-      if (Math.abs(acc) < 40) return;
+      if (Math.abs(acc) < THRESHOLD) return;
+
+      spent = true;
+      settled.current = false; // hold the gate until snapTo's animation lands
       step(acc > 0 ? 1 : -1);
-      acc = 0;
-      locked = true;
-      setTimeout(() => (locked = false), 320);
     };
+
     el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
-  }, [step]);
+    return () => {
+      clearTimeout(idle);
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, [step, count]);
 
   // --- drag -----------------------------------------------------------------
   const drag = useRef(null);
