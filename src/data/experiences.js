@@ -5,12 +5,32 @@
 // React over JavaScript, FastAPI over "web framework". Python stays alongside
 // FastAPI because it did separate work (the Playwright automation). Auth and
 // other implementation details belong in the bullets, not here.
-// BCA and Robotics named no technologies, so they're empty (the UI hides the row).
+// Fundr, BCA and Robotics named no technologies, so they're empty (the UI hides the row).
+//
+// `year` is the span shown on the wheel and on the card badge, so it stays in
+// step with `date` -- a single month like BCA's is just the year, not a range.
 export const experiences = [
+  {
+    id: "fundr",
+    name: "Fundr.net.au",
+    year: "2026 - Present",
+    logo: "./images/fundr_logo_web.webp",
+    image: "./images/fundr_home_web.webp",
+    role: "Co-Founder & Software Developer",
+    org: "Fundr.net.au",
+    date: "Apr 2026 - Present",
+    location: "Australia (Remote)",
+    description: [
+      "Co-founded and developed a platform connecting Australian university student societies with corporate sponsors, enabling societies to manage events, connect with sponsors, and track sponsorship opportunities.",
+      "Worked across product and engineering to translate evolving business requirements into practical platform features, shaping the system's core workflows and technical infrastructure.",
+    ],
+    techStack: [],
+    logoRounded: false,
+  },
   {
     id: "xsigma",
     name: "X-Sigma Partners",
-    year: "2025",
+    year: "2025 - 2026",
     logo: "./images/xsigma_logo.jpg",
     image: "./images/xsigma_team_web.jpg",
     role: "Software Developer Intern",
@@ -30,7 +50,7 @@ export const experiences = [
   {
     id: "robotics",
     name: "NYU Shanghai Robotics",
-    year: "2024",
+    year: "2024 - Present",
     logo: "./images/robotics.jpeg",
     image: "./images/robots_team_web.jpg",
     role: "Board Member",
@@ -53,7 +73,7 @@ export const experiences = [
     image: "./images/bcaintern.jpg",
     role: "IT Business Analyst",
     org: "Internship - Bank Central Asia (BCA)",
-    date: "Dec 2022 - Jan 2023",
+    date: "Dec 2022",
     location: "Jakarta, Indonesia (On-site)",
     description: [
       "Researched security & Customer service.",

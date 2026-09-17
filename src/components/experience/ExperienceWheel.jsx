@@ -7,6 +7,34 @@ import ExperienceWheelItem from "./ExperienceWheelItem";
 const RAD = Math.PI / 180;
 const mod = (n, m) => ((n % m) + m) % m;
 
+// --- rotation hint --------------------------------------------------------
+// Two arcs riding the outer ring, drawn in a 100x100 viewBox so they scale with
+// the wheel. Angles are SVG-style (y down), so increasing the angle travels
+// clockwise; the pair points the same way round the circle, which is what reads
+// as "this spins" rather than as two separate one-way buttons.
+const HINT_R = 49;
+const HINT_SPAN = 22; // half-length of each arc, in degrees
+const HEAD = 3.4; // arrowhead arm length, in viewBox units
+
+const onRing = (deg) => [50 + HINT_R * Math.cos(deg * RAD), 50 + HINT_R * Math.sin(deg * RAD)];
+
+// Arc from `deg - HINT_SPAN` to `deg + HINT_SPAN`, plus an arrowhead at the
+// leading (clockwise) end, its arms swept back off the tangent there.
+function hint(deg) {
+  const [sx, sy] = onRing(deg - HINT_SPAN);
+  const tipDeg = deg + HINT_SPAN;
+  const [tx, ty] = onRing(tipDeg);
+  // Tangent at the tip for increasing angle, i.e. the direction of travel.
+  const heading = Math.atan2(Math.cos(tipDeg * RAD), -Math.sin(tipDeg * RAD)) / RAD;
+  const arm = (offset) => {
+    const a = (heading + 180 + offset) * RAD;
+    return `${tx + HEAD * Math.cos(a)} ${ty + HEAD * Math.sin(a)}`;
+  };
+  return `M ${sx} ${sy} A ${HINT_R} ${HINT_R} 0 0 1 ${tx} ${ty} M ${arm(28)} L ${tx} ${ty} L ${arm(-28)}`;
+}
+
+const HINTS = [hint(-90), hint(90)];
+
 /**
  * Radial timeline. Items sit on a circle; the slot at 3 o'clock (0deg) is the
  * active position. Rotating the wheel brings a different item into that slot.
@@ -193,6 +221,28 @@ export default function ExperienceWheel({ experiences, index, onIndexChange }) {
       <div className="absolute inset-0 rounded-full border border-white/10" />
       <div className="absolute inset-[12%] rounded-full border border-white/[0.07]" />
       <div className="absolute inset-[26%] rounded-full border border-dashed border-white/[0.06]" />
+
+      {/* Direction hint. overflow-visible because the stroke straddles the ring,
+          and non-scaling-stroke so it stays a hairline at every breakpoint
+          instead of thickening with the viewBox. */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="absolute inset-0 w-full h-full overflow-visible pointer-events-none text-white/30"
+      >
+        {HINTS.map((d) => (
+          <path
+            key={d}
+            d={d}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+      </svg>
 
       {/* The fixed active slot at 3 o'clock */}
       <div
