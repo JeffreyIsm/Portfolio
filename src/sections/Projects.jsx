@@ -11,13 +11,13 @@ export default function Proj() {
   const items = [
     {
       id: 5,
-      title: "Campus Marketplace Platform",
-      text: `On dorm move-out day I saw how many usable items were being thrown out, so I built a peer-to-peer marketplace for the NYU Shanghai community. @nyu.edu sign-in keeps it to students, with real-time messaging between buyers and sellers.`,
-      image: "./images/studentrades_web.webp",
+      title: "Strades: Student Marketplace",
+      text: `On dorm move-out day I saw how many usable items were being thrown out, so I built a peer-to-peer marketplace for students. Any university can join: school email sign-in shows you listings from your own campus, where you can sell, trade, or give things away, with real-time messaging between buyers and sellers.`,
+      image: "./images/strades_web.webp",
       imgW: 1400,
-      imgH: 745,
+      imgH: 719,
       builtFor: "University",
-      link: "https://studentrades.xyz/",
+      link: "https://strades.net/",
       linkReason: null,
       techStack: "React - FastAPI - Supabase",
     },
