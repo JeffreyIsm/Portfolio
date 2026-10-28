@@ -118,6 +118,15 @@ function Intro() {
                     Software Developer
                 </motion.h2>
 
+                <motion.p
+                    className="mt-3 md:mt-4 max-w-[34rem] mx-auto md:mx-0 text-[clamp(0.8rem,0.75rem+0.2vw,0.95rem)] leading-relaxed text-white/70"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.8 }}
+                >
+                    Software developer with experience across Chinese, Indonesian, and international markets. I build practical tools for real business problems, shaped by how differently teams operate around the world.
+                </motion.p>
+
                 <motion.div
                     className="dark flex flex-row justify-center md:justify-start mt-4"
                     initial={{ opacity: 0, scale: 0.5, x: -20 }}
